@@ -1,8 +1,9 @@
 # AI 料定好喝 Demo
 
+
 书亦烧仙草消费者共创爆品平台的交互式概念验证，由“老辈子”团队制作，用于企业命题开题报告展示。
 
-**在线体验：[https://bowen-ye.github.io/shuyi-ai-demo/](https://bowen-ye.github.io/shuyi-ai-demo/)**
+**在线体验：[https://bowen-ye.github.io/bowen/](https://bowen-ye.github.io/bowen/)**
 
 ![AI 料定好喝消费者端预览](desktop-preview.png)
 
