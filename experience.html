@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10251d">
+  <meta name="description" content="书亦烧仙草 AI 料定好喝消费者共创爆品平台">
+  <title>AI 料定好喝 | 共创下一杯爆款</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="experience.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="identity" href="#" aria-label="料定好喝首页"><span class="seal">料</span><span><b>AI 料定好喝</b><small>SHUYI FLAVOR LAB</small></span></a>
+    <nav class="mode-switch" aria-label="产品视图"><button class="mode active" data-view="lab"><i data-lucide="sparkles"></i>AI 调饮台</button><button class="mode" data-view="radar"><i data-lucide="radar"></i>爆品雷达</button></nav>
+    <div class="pilot"><i data-lucide="map-pin"></i><span>成都 · 春熙路</span><b>试点在线</b></div>
+  </header>
+
+  <main>
+    <section id="lab-view" class="view active">
+      <div class="lab-copy">
+        <div class="context-strip"><span><i data-lucide="sun-medium"></i>28°C</span><span><i data-lucide="clock-3"></i>14:36</span><span><i data-lucide="history"></i>近5单低糖</span></div>
+        <p class="overline">AI 仙草配料官 · 场景 0286</p>
+        <h1>说出此刻的你，<br><em>让 AI 料定好喝。</em></h1>
+        <p class="intro">不是从菜单里猜答案。描述状态，AI会在门店可制作的有效配方中，为你计算一杯有理由的推荐。</p>
+        <div class="prompt-box">
+          <i data-lucide="message-circle-more"></i>
+          <textarea id="desire-input" rows="2" maxlength="60" aria-label="描述饮用需求">午后想清醒一下，有点嚼感，但不要太甜太撑</textarea>
+          <button id="voice" class="square-button" title="语音输入"><i data-lucide="mic"></i></button>
+        </div>
+        <div class="intent-block">
+          <div class="section-label"><span>此刻想要</span><small>最多选择 2 项</small></div>
+          <div class="intent-list">
+            <button class="intent active" data-need="refresh"><i data-lucide="wind"></i>清爽提神</button>
+            <button class="intent active" data-need="light"><i data-lucide="feather"></i>轻负担</button>
+            <button class="intent" data-need="treat"><i data-lucide="cookie"></i>解馋满足</button>
+            <button class="intent" data-need="full"><i data-lucide="battery-charging"></i>饱腹续航</button>
+            <button class="intent" data-need="surprise"><i data-lucide="wand-sparkles"></i>尝点新鲜</button>
+          </div>
+        </div>
+        <div class="control-row">
+          <div class="budget-control"><label for="budget-v2">预算上限 <b id="budget-v2-value">18</b> 元</label><input id="budget-v2" type="range" min="12" max="25" value="18"></div>
+          <label class="toggle"><input id="dairy-free-v2" type="checkbox"><span></span><b>不含乳制品</b></label>
+        </div>
+        <button class="generate-button" id="generate-v2"><span>开始生成专属配方</span><i data-lucide="arrow-up-right"></i></button>
+        <div class="trust-row"><span><i data-lucide="shield-check"></i>食品安全规则已启用</span><span><i data-lucide="store"></i>仅推荐当前门店可售配方</span></div>
+      </div>
+
+      <div class="drink-theater" id="drink-theater">
+        <div class="theater-top"><span class="ai-status"><i></i>FLAVOR ENGINE · READY</span><button id="shuffle-v2" class="theater-action"><i data-lucide="shuffle"></i>换一组</button></div>
+        <div class="flavor-coordinates" aria-label="风味坐标">
+          <span class="coordinate c1">茶感 <b id="coord-tea">90</b></span><span class="coordinate c2">甜感 <b id="coord-sweet">40</b></span><span class="coordinate c3">嚼感 <b id="coord-chew">60</b></span><span class="coordinate c4">轻盈 <b id="coord-light">82</b></span>
+        </div>
+        <div class="product-zone">
+          <div class="ingredient ingredient-a">桂花<br><b>香气 +18</b></div><div class="ingredient ingredient-b">嫩仙草<br><b>嚼感 +24</b></div><div class="ingredient ingredient-c">微糖<br><b>负担 -30</b></div>
+          <div class="hero-cup" id="hero-cup">
+            <div class="hero-straw"></div><div class="hero-lid"></div>
+            <div class="hero-body"><div class="tea-fill"></div><div class="milk-cloud"></div><div class="topping-field"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="cup-shine"></div><div class="cup-logo"><b>書亦</b><small>SHUYI</small></div></div>
+            <div class="cup-shadow"></div>
+          </div>
+        </div>
+        <div class="recipe-glance">
+          <div><p>AI MATCH <span id="match-v2">92%</span></p><h2 id="recipe-v2">轻盈桂花仙草乌龙</h2><small id="recipe-tags">桂香乌龙 · 微糖 · 嫩仙草</small></div>
+          <button id="open-result" class="reveal-button"><span>查看推荐逻辑</span><i data-lucide="chevron-right"></i></button>
+        </div>
+        <div class="scan-line"></div>
+      </div>
+
+      <div id="thinking" class="thinking" aria-hidden="true">
+        <div class="thinking-core"><span class="pulse-ring"></span><span class="pulse-ring delay"></span><i data-lucide="sparkles"></i></div>
+        <p>正在计算你的风味坐标</p><div class="thinking-steps"><span class="active">理解场景</span><span>过滤禁配</span><span>匹配门店</span><span>预测复购</span></div>
+      </div>
+
+      <aside id="result-drawer" class="result-drawer" aria-hidden="true">
+        <button class="drawer-close" id="close-result" title="关闭"><i data-lucide="x"></i></button>
+        <p class="overline">YOUR FORMULA · <span id="formula-id">CD-0286</span></p><h2 id="drawer-name">轻盈桂花仙草乌龙</h2>
+        <div class="why-box"><span>为什么是这杯</span><p id="reason-v2">28°C午后，乌龙茶感清晰，嫩仙草提供轻嚼感；微糖减少甜腻，桂花增加香气记忆点。</p></div>
+        <div class="formula-list"><div><span>茶底</span><b id="tea-v2">桂香乌龙</b><small>茶感清晰</small></div><div><span>糖度</span><b id="sugar-v2">微糖</b><small>甜感 -30%</small></div><div><span>小料</span><b id="topping-v2">嫩仙草</b><small>轻嚼感</small></div></div>
+        <div class="impact-title"><span>配方影响</span><small>基于标准配方估算</small></div>
+        <div class="impact-grid"><div><i data-lucide="badge-dollar-sign"></i><span>价格</span><b id="price-v2">16 元</b></div><div><i data-lucide="flame"></i><span>热量参考</span><b id="kcal-v2">约 210 kcal</b></div><div><i data-lucide="timer"></i><span>预计出杯</span><b>55 秒</b></div><div><i data-lucide="trending-up"></i><span>爆品潜力</span><b id="potential-v2">82.4</b></div></div>
+        <div class="drawer-actions"><button id="customize-v2" class="outline-button"><i data-lucide="sliders-horizontal"></i>微调配方</button><button id="adopt-v2" class="solid-button"><i data-lucide="shopping-bag"></i>采纳并参与共创</button></div>
+      </aside>
+
+      <div id="co-create" class="co-create" aria-hidden="true">
+        <button id="close-create" class="drawer-close" title="关闭"><i data-lucide="x"></i></button>
+        <div class="share-art"><p>CO-CREATED · CHENGDU</p><div class="share-cup"><i></i><b>書亦</b></div><span>配方人格</span><strong>清醒的松弛派</strong><h2 id="share-name-v2">轻盈桂花仙草乌龙</h2><small>老辈子 × AI 料定好喝</small></div>
+        <div class="create-copy"><p class="overline">你的第 1 份共创配方</p><h2>这杯，可以留下你的名字。</h2><p>每一次真实复购都会为配方增加爆品潜力，优胜配方将进入成都城市限定测试。</p><label>配方名称<div class="text-field"><input id="name-v2" maxlength="16" value="轻盈桂花仙草乌龙"><span id="count-v2">9/16</span></div></label><div class="co-create-score"><span>当前共创排位</span><b>TOP 12%</b><small>同场景 2,846 份配方中</small></div><button id="share-v2" class="solid-button full"><i data-lucide="share-2"></i>生成我的配方身份卡</button><p id="share-message-v2" class="share-message"></p></div>
+      </div>
+    </section>
+
+    <section id="radar-view" class="view radar-view">
+      <aside class="radar-nav"><p>EXPLORE</p><button class="active"><i data-lucide="layout-dashboard"></i><span>总览</span></button><button><i data-lucide="flask-conical"></i><span>配方池</span><b>216</b></button><button><i data-lucide="map"></i><span>城市热区</span></button><button><i data-lucide="test-tube-diagonal"></i><span>A/B 实验</span><b>8</b></button><button><i data-lucide="shield-check"></i><span>安全护栏</span></button><div class="nav-foot"><span>DATA WINDOW</span><b>2026.06.17—07.17</b><small>数据每 15 分钟更新</small></div></aside>
+      <div class="radar-main">
+        <div class="radar-head"><div><p class="overline">爆品雷达 · 成都试点</p><h1>下一杯爆款，正在发生。</h1></div><div class="head-actions"><button class="outline-button"><i data-lucide="calendar-days"></i>近 30 天</button><button class="solid-button"><i data-lucide="download"></i>导出洞察</button></div></div>
+        <div class="north-star"><div><p>北极星指标 · AI 配方 7 日有效复购率</p><strong>31.2<small>%</small></strong><span>较常规菜单 <b>+5.1%</b></span></div><div class="trend-wrap"><canvas id="trend-chart" width="760" height="180"></canvas><div class="chart-labels"><span>06/17</span><span>06/24</span><span>07/01</span><span>07/08</span><span>07/17</span></div></div><div class="pulse-metrics"><div><span>推荐采纳率</span><b>24.8%</b><small>↑ 3.6%</small></div><div><span>平均客单</span><b>17.6</b><small>元 · ↑ 8.4%</small></div><div><span>有效共创</span><b>2,846</b><small>本周 +382</small></div></div></div>
+        <div class="radar-grid">
+          <article class="candidate-panel"><div class="panel-title"><div><span>LIVE RANKING</span><h2>城市限定候选</h2></div><div class="segment"><button class="active">综合潜力</button><button>复购</button><button>传播</button></div></div><div class="candidate-head"><span>排名 / 配方</span><span>潜力</span><span>复购</span><span>稳定</span><span>阶段</span></div>
+            <button class="candidate selected" data-candidate="0"><span><em>01</em><i class="drink-swatch sage"></i><b>轻盈桂花仙草乌龙<small>清爽提神 · 低负担</small></b></span><strong>82.4<small>+6.2</small></strong><span>34.8%</span><span>98.2%</span><mark>区域测试</mark></button>
+            <button class="candidate" data-candidate="1"><span><em>02</em><i class="drink-swatch brown"></i><b>黑糖糯糯仙草乳<small>解馋满足 · 浓郁</small></b></span><strong>79.1<small>+8.7</small></strong><span>32.6%</span><span>96.5%</span><mark class="gold">城市限定</mark></button>
+            <button class="candidate" data-candidate="2"><span><em>03</em><i class="drink-swatch coral"></i><b>山楂啵啵茉莉<small>清爽 · 尝鲜</small></b></span><strong>76.8<small>+4.1</small></strong><span>29.4%</span><span>97.1%</span><mark class="violet">虚拟测款</mark></button>
+            <button class="candidate" data-candidate="3"><span><em>04</em><i class="drink-swatch oat"></i><b>燕麦芋圆轻乳茶<small>饱腹续航 · 低负担</small></b></span><strong>73.5<small>+2.8</small></strong><span>30.1%</span><span>94.3%</span><mark>区域测试</mark></button>
+          </article>
+          <aside class="signal-panel"><div class="signal-head"><span>配方信号解读</span><b id="signal-score">82.4</b></div><h2 id="signal-name">轻盈桂花仙草乌龙</h2><div class="signal-bars"><div><span>复购强度</span><i><b style="width:88%"></b></i><em>88</em></div><div><span>社交传播</span><i><b style="width:74%"></b></i><em>74</em></div><div><span>毛利健康</span><i><b style="width:81%"></b></i><em>81</em></div><div><span>供应稳定</span><i><b style="width:96%"></b></i><em>96</em></div></div><div class="ai-verdict"><i data-lucide="sparkles"></i><div><span>AI VERDICT</span><p id="signal-verdict">午后低负担场景表现突出，复购与门店稳定性同时过线。建议进入 20 店区域 A/B 测试。</p></div></div><div class="gate"><span>下一阶段</span><b>20 店区域 A/B</b><button title="打开实验"><i data-lucide="arrow-right"></i></button></div></aside>
+        </div>
+        <div class="bottom-grid"><article class="city-map"><div class="panel-title"><div><span>FLAVOR MAP</span><h2>成都口味热区</h2></div><small>按有效订单密度</small></div><div class="map-stage"><div class="map-lines"></div><span class="hotspot h1"><b>春熙路</b><small>清爽茶感 ↑</small></span><span class="hotspot h2"><b>金融城</b><small>低负担 ↑</small></span><span class="hotspot h3"><b>建设路</b><small>糯叽叽 ↑</small></span><span class="hotspot h4"><b>大学城</b><small>性价比 ↑</small></span></div></article><article class="funnel-v2"><div class="panel-title"><div><span>INCUBATION</span><h2>爆品孵化进度</h2></div><small>本周期</small></div><div class="funnel-steps"><div><b>2,846</b><span>有效共创</span></div><i></i><div><b>216</b><span>虚拟测款</span></div><i></i><div><b>28</b><span>区域测试</span></div><i></i><div><b>6</b><span>城市限定</span></div><i></i><div class="final"><b>1</b><span>全国立项</span></div></div><p><i data-lucide="shield-alert"></i>食品安全、供应不稳、出杯超时或毛利低于红线时一票否决。</p></article></div>
+        <footer class="demo-note">本页面全部经营数据均为方案演示值，不代表书亦烧仙草实际经营数据。</footer>
+      </div>
+    </section>
+  </main>
+  <div id="toast-v2" class="toast-v2"><i data-lucide="circle-check"></i><span>操作成功</span></div>
+  <script src="experience.js"></script>
+</body>
+</html>
